@@ -12,6 +12,8 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
 		
 		<mapping class="hibernetBasic.Student" />
 		<mapping class="hibernetBasic.Address" />
@@ -19,6 +21,9 @@
 		<mapping class="com.mapping.Answer" />
 		<mapping class="com.mapping1.Employe" />
 		<mapping class="com.mapping1.Project" />
+		
+		
+		<mapping resource="com/xml/mapping/table/XmlMappingTable.hbm.xml"/>
 	</session-factory>
 
 

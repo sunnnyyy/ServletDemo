@@ -2,8 +2,8 @@ package com.mapping1;
 
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Employe {
 
 	@Id
@@ -60,6 +65,12 @@ public class Employe {
 	public void setProject(List<Project> projects) {
 		this.projects = projects;
 	}
+
+	@Override
+	public String toString() {
+		return "Employe [id=" + id + ", name=" + name + "]";
+	}
+	
 
 	
 }

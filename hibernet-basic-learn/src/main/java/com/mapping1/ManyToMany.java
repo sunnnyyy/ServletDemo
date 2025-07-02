@@ -38,6 +38,7 @@ public class ManyToMany {
 			e1.setProject(pl);
 			p1.setEmploye(el);
 			
+			// if u use cascade no need to save these below object value it will automatic saved
 			ses.save(e1);
 			ses.save(e2);
 			ses.save(p1);

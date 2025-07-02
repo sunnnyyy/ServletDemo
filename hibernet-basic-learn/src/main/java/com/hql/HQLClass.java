@@ -1,13 +1,13 @@
 package com.hql;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import hibernetBasic.Student;
@@ -18,6 +18,8 @@ public class HQLClass {
 		SessionFactory factory = cf.buildSessionFactory();
 		Session ses = factory.openSession();
 
+//		String sql = "select * from student"; // from mysql table
+//		NativeQuery q = ses.createSQLQuery(sql); // Query q also can be use
 //		String hql = "FROM Student";
 		String hql = "FROM Student where name=:name and city=:city";
 		// NOTE: table name will be here class name Student and column name will be here
@@ -26,8 +28,11 @@ public class HQLClass {
 		query.setParameter("name", "sunny");
 		query.setParameter("city", "patna");
 		// Execute and get result list
+//		query.setFirstResult(0);// for pagination
+//		query.setMaxResults(5); // max 5 records will be fetched
+		
 		List<Student> students = query.list();
-
+		
 		// Print or use the result
 		for (Student student : students) {
 			System.out.println(student.getName());
