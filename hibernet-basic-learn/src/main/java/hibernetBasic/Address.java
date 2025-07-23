@@ -26,17 +26,17 @@ public class Address {
 	@Column(length = 50)
 	private String state;
 
-	@Transient
+	@Transient // it will not create a column in the database
 	private int x;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE) // temporal over a date field tells hibernate to store the format in which  date needs to be saved
 	@Column(name = "created_at")
 	private Date AddedDate;
 
 	@Column(name = "is_open")
 	private boolean isOpen;
 
-	@Lob
+	@Lob // this is the large object type which is used to store large data like images, videos, etc.
 	private byte[] image;
 
 	public Address() {

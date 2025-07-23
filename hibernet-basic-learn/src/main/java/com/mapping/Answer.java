@@ -15,7 +15,7 @@ public class Answer {
 	private String answer;
 
 	@OneToOne(mappedBy = "answer") // it will not create question_id column in this table it will ignore
-	private Question question;
+	private Question question; // this is the one-to-one mapping if we create in Question.java then no need here or if we write here then no need in Question table
 
 	public Answer() {
 		super();

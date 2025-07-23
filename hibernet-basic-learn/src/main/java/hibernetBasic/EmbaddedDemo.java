@@ -23,6 +23,7 @@ public class EmbaddedDemo {
 
 		Transaction tx = ses.beginTransaction();
 		ses.save(s);
+		// no need to save certificate separately, it will be saved automatically in student table
 
 		tx.commit();
 		ses.close();

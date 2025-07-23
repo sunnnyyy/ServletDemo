@@ -16,7 +16,7 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-//  no need to save object related to project if we save employee object automatic entry will added in this projec table
+//  no need to save object related to project if we save employee object automatic entry will added in this project table
 //	@ManyToMany(mappedBy = "projects", cascade = CascadeType.ALL)
 	@ManyToMany(mappedBy = "projects")
 	private List<Employe> employe;

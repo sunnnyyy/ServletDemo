@@ -2,7 +2,7 @@ package hibernetBasic;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
+@Embeddable // it will save this record in the same table as Student
 public class Certificate {
 	
 	private String course;
